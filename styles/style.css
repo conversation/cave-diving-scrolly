@@ -217,7 +217,6 @@ nav > li a {
 
 .publish_date {
   font-size: var(--font-size--small);
-  /* font-family: var(--font-family--base); */
   margin-top: var(--space--base);
 }
 
@@ -510,7 +509,6 @@ span a {
 
 .pinned_parent_wrapper {
   position: relative;
-  background-color: #000;
   width: 100%;
   min-height: 100vh;
 }
@@ -557,6 +555,7 @@ span a {
 
 .pinned_media_wrapper_fixed {
   clip-path: inset(-0.5px 0);
+  -webkit-clip-path: inset(-0.5px 0);
   position: absolute;
   height: 100%;
 }
@@ -774,7 +773,6 @@ footer {
   }
 
   .intro_copy {
-    /* padding: 0; */
     margin: 0 10px;
   }
 
