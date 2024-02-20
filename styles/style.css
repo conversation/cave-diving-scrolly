@@ -631,7 +631,6 @@ aside {
 
 aside h2 {
   font-size: var(--font-size--base);
-  margin-top: 0;
 }
 
 aside a:hover {
@@ -639,7 +638,7 @@ aside a:hover {
 }
 
 .disclosure_statement {
-  font-size: var(--font-size--small);
+  font-size: var(--font-size--x-small);
 }
 
 .logo {
