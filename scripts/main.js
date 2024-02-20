@@ -1,25 +1,11 @@
 gsap.registerPlugin(ScrollTrigger);
 
 function createIntroParallax() {
-  gsap.to(".intro_figures", {
-    opacity: 0,
-    y: "30%",
-    scrollTrigger: {
-      trigger: ".intro_wrapper",
-      start: "top top",
-      end: "bottom top",
-      scrub: true,
-    },
-  });
-
   gsap.to(".intro_copy", {
+    ease: "power1.inOut",
     opacity: 1,
-    scrollTrigger: {
-      trigger: ".intro_wrapper",
-      start: "top top",
-      end: "bottom 50%",
-      scrub: true,
-    },
+    duration: 4,
+    delay: 2,
   });
 }
 
