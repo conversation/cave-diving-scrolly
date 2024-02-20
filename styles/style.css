@@ -228,7 +228,7 @@ nav > li a {
 
 .author_info {
   font-size: var(--font-size--base);
-  margin-bottom: 2rem;
+  margin-bottom: 0.75rem;
   font-style: italic;
 }
 
@@ -562,7 +562,7 @@ span a {
 }
 
 .pinned_media_wrapper_fixed {
-  clip-path: inset(0 0);
+  clip-path: inset(-0.5px 0);
   position: absolute;
   height: 100%;
 }
