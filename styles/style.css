@@ -1,8 +1,6 @@
 :root {
-  /* --clamp-base: 600px; */
   --clamp-base: clamp(500px, 90vw, 600px);
-  --clamp-large: 750px;
-  /* --clamp-large: clamp(600px, 90vw, 800px); */
+  --clamp-large: clamp(600px, 90vw, 700px);
   --clamp-image-base: clamp(600px, 90vw, 800px);
   --clamp-image-large: clamp(600px, 90vw, 1200px);
   --color--jet: #202020;
@@ -232,6 +230,10 @@ nav > li a {
   font-style: italic;
 }
 
+.author_info > a {
+  color: white;
+}
+
 /* -------- Article copy ------- */
 
 article {
@@ -277,7 +279,7 @@ h2 {
   font-size: var(--font-size--xl);
   font-weight: 700;
   line-height: var(--line-height--wide);
-  margin-top: var(--space--base);
+  margin-top: var(--space--medium);
 }
 
 p {
@@ -331,7 +333,7 @@ span a {
   position: relative;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.8);
-  padding: var(--space--medium);
+  padding: var(--space--base);
   border-radius: var(--border-radius--pill);
   font-family: var(--font-family--base);
 }
@@ -340,14 +342,23 @@ span a {
   box-sizing: border-box;
   position: relative;
   display: block;
-  transform: scale(var(--ggs, 1));
-  width: 22px;
-  height: 22px;
-  border: 2px solid transparent;
-  border-radius: 100px;
+  width: 1rem;
+  height: 1rem;
   left: 50%;
   animation: jumping 2s ease-in-out infinite;
   will-change: transform;
+}
+
+.chevron-down::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: calc(1rem / 1.5);
+  height: calc(1rem / 1.5);
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  transform: rotate(45deg);
 }
 
 @keyframes jumping {
@@ -360,20 +371,6 @@ span a {
   100% {
     transform: translateX(-50%) translateY(0);
   }
-}
-
-.chevron-down::after {
-  content: "";
-  display: block;
-  box-sizing: border-box;
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-bottom: 2px solid;
-  border-right: 2px solid;
-  transform: rotate(45deg);
-  left: 4px;
-  top: 2px;
 }
 
 .article_title {
