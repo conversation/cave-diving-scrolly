@@ -1,30 +1,248 @@
 @font-face {
-  font-display: swap;
   font-family: Libre Baskerville;
-  src: url("../static/fonts/libre-baskerville-regular.woff2") format("woff2");
-  src: url("../static/fonts/libre-baskerville-regular.woff") format("woff");
   font-style: normal;
   font-weight: 400;
+  src: url("https://cdn.theconversation.com/static/tc/stylesheets/carlton/fonts/librebaskerville-regular-979b88dad081c654981a0c29d46e27bc.eot");
+  src: url("https://cdn.theconversation.com/static/tc/stylesheets/carlton/fonts/librebaskerville-regular-979b88dad081c654981a0c29d46e27bc.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.theconversation.com/static/tc/stylesheets/carlton/fonts/librebaskerville-regular-6fbec92a1e6cb891ff0da1af2e97a523.woff")
+      format("woff"),
+    url("https://cdn.theconversation.com/static/tc/stylesheets/carlton/fonts/librebaskerville-regular-116bba3f2aa32286b63c594118c67f74.ttf")
+      format("truetype");
 }
 @font-face {
-  font-display: swap;
   font-family: Libre Baskerville;
-  src: url("../static/fonts/libre-baskerville-bold.woff2") format("woff2");
   font-style: normal;
   font-weight: 700;
+  src: url("https://cdn.theconversation.com/static/tc/stylesheets/carlton/fonts/librebaskerville-bold-9f88f945d8445fa58978dfbc4bce5ae9.eot");
+  src: url("https://cdn.theconversation.com/static/tc/stylesheets/carlton/fonts/librebaskerville-bold-9f88f945d8445fa58978dfbc4bce5ae9.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.theconversation.com/static/tc/stylesheets/carlton/fonts/librebaskerville-bold-98b8244fa821eed601d3d92165b098c6.woff")
+      format("woff"),
+    url("https://cdn.theconversation.com/static/tc/stylesheets/carlton/fonts/librebaskerville-bold-1c63ea5a813372cc806d3885496b3308.ttf")
+      format("truetype");
 }
 @font-face {
-  font-display: swap;
   font-family: Libre Baskerville;
-  src: url("../static/fonts/libre-baskerville-italic.woff2") format("woff2");
-  src: url("../static/fonts/libre-baskerville-italic.woff") format("woff");
   font-style: italic;
   font-weight: 400;
+  src: url("https://cdn.theconversation.com/static/tc/stylesheets/carlton/fonts/librebaskerville-italic-760c6e0b5a6ab858f15ea6cc6a864a40.eot");
+  src: url("https://cdn.theconversation.com/static/tc/stylesheets/carlton/fonts/librebaskerville-italic-760c6e0b5a6ab858f15ea6cc6a864a40.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.theconversation.com/static/tc/stylesheets/carlton/fonts/librebaskerville-italic-022309ef5c47fb36921851f730a90a84.woff")
+      format("woff"),
+    url("https://cdn.theconversation.com/static/tc/stylesheets/carlton/fonts/librebaskerville-italic-e6cc30071bd07d243648b875a10a6c02.ttf")
+      format("truetype");
+}
+@font-face {
+  font-family: Libre Baskerville;
+  font-style: italic;
+  font-weight: 700;
+  src: url("https://cdn.theconversation.com/static/tc/stylesheets/carlton/fonts/librebaskerville-bolditalic-4fc9003b7c507a3909502ccc05a9cf2a.eot");
+  src: url("https://cdn.theconversation.com/static/tc/stylesheets/carlton/fonts/librebaskerville-bolditalic-4fc9003b7c507a3909502ccc05a9cf2a.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.theconversation.com/static/tc/stylesheets/carlton/fonts/librebaskerville-bolditalic-005508da94d530c4715b860b63e014bc.woff")
+      format("woff"),
+    url("https://cdn.theconversation.com/static/tc/stylesheets/carlton/fonts/librebaskerville-bolditalic-d0e7fc2079d2288a9c737a386bd46401.ttf")
+      format("truetype");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 100;
+  src: local("Montserrat Thin "), local("Montserrat-Thin"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-100-a5bfe500a212b55e1d97ab22ec963cc2.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-100-f3fd3a8cda2788c9187834cf76d76d57.woff")
+      format("woff");
 }
 @font-face {
   font-display: swap;
   font-family: Montserrat;
-  src: url("../static/fonts/montserrat.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 100;
+  src: local("Montserrat Thin italic"), local("Montserrat-Thinitalic"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-100italic-c4fd7303dedad09a44867a2c79296456.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-100italic-8545c5c9716e859e79c61d608b561504.woff")
+      format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
   font-style: normal;
-  font-weight: 100 900;
+  font-weight: 200;
+  src: local("Montserrat Extra Light "), local("Montserrat-Extra Light"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-200-11e53b4b006a3bacb5b027c6a9bb64ce.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-200-b6f663e2de4a8379688cdba1b954edbc.woff")
+      format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: 200;
+  src: local("Montserrat Extra Light italic"),
+    local("Montserrat-Extra Lightitalic"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-200italic-32131f2a84c4a3abee7d2fd2b49850ad.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-200italic-cd7b7fa2da727185e9a74724658bcc65.woff")
+      format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  src: local("Montserrat Light "), local("Montserrat-Light"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-300-c587fd5d56f85fb730092fc82551b5a1.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-300-46b5c290e8fd38b7639e3f9383c2ac56.woff")
+      format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: 300;
+  src: local("Montserrat Light italic"), local("Montserrat-Lightitalic"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-300italic-ca09533c023a3a9df2fb0167c26e0fdb.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-300italic-f56d740b2c209398b341cc025a9c77d6.woff")
+      format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 400;
+  src: local("Montserrat Regular "), local("Montserrat-Regular"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-400-504499c7e16ee847a32a7a8bf6923a79.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-400-7710fcbaccd9837e1c5e7e819bf1d230.woff")
+      format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: 400;
+  src: local("Montserrat Regular italic"), local("Montserrat-Regularitalic"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-400italic-920286bb1fd8ffb693ef17a42546ee3a.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-400italic-035e0faa25a71eeab032f07cf5490eef.woff")
+      format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  src: local("Montserrat Medium "), local("Montserrat-Medium"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-500-6fd836a65acf6d59bd2f5e0be5717207.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-500-561e37f444fecedbe680a382e941392a.woff")
+      format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: 500;
+  src: local("Montserrat Medium italic"), local("Montserrat-Mediumitalic"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-500italic-44f475da8da3427ecc77a4450f00452c.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-500italic-4d2fdf6bcf6c74b893e69fec9c8907e5.woff")
+      format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  src: local("Montserrat SemiBold "), local("Montserrat-SemiBold"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-600-c18b4ac34e93857f7437c28f94923dc0.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-600-010ceaeb92611d327450a647f8ce6017.woff")
+      format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: 600;
+  src: local("Montserrat SemiBold italic"), local("Montserrat-SemiBolditalic"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-600italic-2dbbde16b836db7a390a71d3aa2a232e.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-600italic-045adf4940dd14d523350697cd984663.woff")
+      format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 700;
+  src: local("Montserrat Bold "), local("Montserrat-Bold"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-700-66fd2310725b78026454e50d0dd9effc.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-700-a7a97263d97c409f1a624f88d4f8f00e.woff")
+      format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: 700;
+  src: local("Montserrat Bold italic"), local("Montserrat-Bolditalic"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-700italic-a9005293d3425d6e611c7c5f451d6f68.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-700italic-2413952457cc83b0bc6fe20b12ffa15b.woff")
+      format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  src: local("Montserrat ExtraBold "), local("Montserrat-ExtraBold"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-800-abbac7439df45ab1a1e316d480a5c281.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-800-5e564db333b8b21c83b84ed531d94eb2.woff")
+      format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: 800;
+  src: local("Montserrat ExtraBold italic"), local("Montserrat-ExtraBolditalic"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-800italic-4dac3f51b5a7a0609d210cc4fd4d5980.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-800italic-61120b3c6f076e91b0a7e86ac6966634.woff")
+      format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 900;
+  src: local("Montserrat Black "), local("Montserrat-Black"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-900-041d8fc07df6765187171717d5b810fb.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-900-c440708c3b73b3d9cea7e345718de728.woff")
+      format("woff");
+}
+@font-face {
+  font-display: swap;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: 900;
+  src: local("Montserrat Black italic"), local("Montserrat-Blackitalic"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-900italic-3028f5dd9ff9ce34cb18fac0f6ffbbda.woff2")
+      format("woff2"),
+    url("https://cdn.theconversation.com/static/tc/typeface-montserrat/files/montserrat-latin-900italic-1d7048d5048513c46705b15fb67a4379.woff")
+      format("woff");
 }
