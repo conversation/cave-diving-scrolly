@@ -657,11 +657,6 @@ span a {
   opacity: 1;
 }
 
-#map1 > g > text {
-  /* font-size: var(--font-size--x-small); */
-  font-size: var(--font-size--small);
-}
-
 #map1 circle {
   transition: unset;
 }

@@ -59,7 +59,7 @@ function createMap() {
       let projection = d3
         .geoMercator()
         .center([140.64, -37.9])
-        .scale(50000)
+        .scale(window.innerWidth < 600 ? 40000 : 50000)
         .translate([width * 0.5, height * 0.5]);
 
       let insetProjection = d3
@@ -111,23 +111,28 @@ function createMap() {
         }
       }
 
+      const filteredData = caveLocations.features.filter((d) => {
+        return (
+          caveNames.some((cave) => d.properties.name.includes(cave)) ||
+          d.properties.name === "Mount Gambier"
+        );
+      });
+
+      function checkIfMtGambier(d) {
+        return d.properties.name === "Mount Gambier";
+      }
+
       pointsGroup
         .selectAll("path")
-        .data(
-          caveLocations.features.filter((d) => {
-            return (
-              caveNames.some((cave) => d.properties.name.includes(cave)) ||
-              d.properties.name === "Mount Gambier"
-            );
-          })
-        )
+        .data(filteredData)
         .join("line")
         .attr("x1", (d) => projection(d.geometry.coordinates)[0])
         .attr(
           "y1",
           (d) =>
             projection(d.geometry.coordinates)[1] +
-            calcDistance(d.properties.name)
+            calcDistance(d.properties.name) -
+            (d.properties.name === "Engelbrecht Cave" ? -10 : 20)
         )
         .attr("x2", (d) => projection(d.geometry.coordinates)[0])
         .attr("y2", (d) => projection(d.geometry.coordinates)[1])
@@ -146,25 +151,66 @@ function createMap() {
         .attr("fill", (d) => {
           if (caveNames.some((cave) => d.properties.name.includes(cave))) {
             return "#e9928c";
-          } else if (d.properties.name === "Mount Gambier") {
+          } else if (checkIfMtGambier(d)) {
             return "#ffc338";
           } else {
             return "#29339b";
           }
         })
+        .style("opacity", 0)
+        .on("mouseover", function (event, d) {
+          console.log(event);
+        });
+
+      // Add text elements temporarily to measure them
+      const tempText = pointsGroup
+        .selectAll(null)
+        .data(filteredData)
+        .enter()
+        .append("text")
+        .style("opacity", 0)
+        .style("font-family", (d) =>
+          checkIfMtGambier(d)
+            ? "font-family: var(--font-family--body);"
+            : "var(--font-family--base)"
+        )
+        .style("font-style", (d) => (checkIfMtGambier(d) ? "italic" : "none"))
+        .style("font-weight", (d) =>
+          checkIfMtGambier(d) ? "" : "var(--font-weight--bold)"
+        )
+        .text((d) => d.properties.name)
+        .each(function (d) {
+          d.bbox = this.getBBox();
+        });
+
+      // Add rectangles based on text bounding boxes
+      pointsGroup
+        .selectAll("rect")
+        .data(filteredData)
+        .enter()
+        .append("rect")
+        .attr(
+          "x",
+          (d) => projection(d.geometry.coordinates)[0] - (d.bbox.width + 10) / 2
+        )
+        .attr(
+          "y",
+          (d) =>
+            projection(d.geometry.coordinates)[1] +
+            calcDistance(d.properties.name) -
+            (d.bbox.height + 16) / 2
+        )
+        .style("width", (d) => d.bbox.width + 10) // Adding some padding
+        .style("height", (d) => d.bbox.height + 5)
+        .attr("fill", "rgba(255,255,255,0.7)")
         .style("opacity", 0);
 
+      // Now add the actual text elements on top of the rectangles
       pointsGroup
-        .selectAll("text")
-        .data(
-          caveLocations.features.filter((d) => {
-            return (
-              caveNames.some((cave) => d.properties.name.includes(cave)) ||
-              d.properties.name === "Mount Gambier"
-            );
-          })
-        )
-        .join("text")
+        .selectAll(null)
+        .data(filteredData)
+        .enter()
+        .append("text")
         .attr("x", (d) => projection(d.geometry.coordinates)[0])
         .attr(
           "y",
@@ -173,14 +219,24 @@ function createMap() {
             calcDistance(d.properties.name)
         )
         .attr("text-anchor", "middle")
-        .attr(
-          "transform",
-          (d) =>
-            `translate(0,${d.properties.name === "Engelbrecht Cave" ? -5 : 15})`
+        .attr("class", (d) =>
+          checkIfMtGambier(d) ? "town_label" : "cave_label"
         )
-        .attr("fill", (d) => "#000")
+        .attr("fill", "#000")
         .style("opacity", 0)
+        .style("font-family", (d) =>
+          checkIfMtGambier(d)
+            ? "font-family: var(--font-family--body)"
+            : "var(--font-family--base)"
+        )
+        .style("font-style", (d) => (checkIfMtGambier(d) ? "italic" : "none"))
+        .style("font-weight", (d) =>
+          checkIfMtGambier(d) ? "" : "var(--font-weight--bold)"
+        )
         .text((d) => d.properties.name);
+
+      // Remove the temporary text elements after measuring
+      tempText.remove();
 
       const boxCorners = [
         [140, -37.6], // Top-left corner
@@ -197,7 +253,7 @@ function createMap() {
       svg
         .append("g")
         .attr("class", "map_inset")
-        .attr("transform", `translate(0,${height - insetHeight - 10})`)
+        .attr("transform", `translate(20,${height - insetHeight - 10})`)
         .selectAll("path")
         .data(australia.features)
         .enter()
@@ -235,10 +291,15 @@ function createMap() {
           each: 0.02,
         },
       }).to(
-        [".points_group text", ".points_group line"],
+        [".points_group text", ".points_group line", ".points_group rect"],
         {
           opacity: 1,
-          duration: 0.5,
+          stagger: {
+            grid: [1, 4],
+            from: "start",
+            axis: "x",
+            each: 0.2,
+          },
         },
         "-=2"
       );
@@ -251,7 +312,7 @@ function createMap() {
       });
 
       ScrollTrigger.create({
-        trigger: ".trigger",
+        trigger: ".map_wrapper",
         start: "top bottom",
         onLeaveBack: () => tl.pause(0),
       });
