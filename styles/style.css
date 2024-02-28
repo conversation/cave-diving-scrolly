@@ -523,7 +523,7 @@ span a {
 
 .pinned_parent_wrapper {
   position: relative;
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
 }
 
@@ -609,13 +609,11 @@ span a {
 
 .pinned_media video {
   height: 100%;
-  width: auto;
   object-fit: cover;
 }
 
 .pinned_media img {
   height: 100%;
-  width: auto;
   object-fit: cover;
   position: absolute;
 }
