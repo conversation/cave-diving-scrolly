@@ -1,14 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
 
-function createIntroParallax() {
-  gsap.to(".intro_copy", {
-    ease: "power1.inOut",
-    opacity: 1,
-    duration: 4,
-    delay: 2,
-  });
-}
-
 function createScrollFades() {
   gsap.utils.toArray(".pinned_parent_wrapper").forEach((pinnedSection) => {
     const bgArr = pinnedSection.querySelector(".pinned_media").children;
@@ -19,7 +10,7 @@ function createScrollFades() {
       ScrollTrigger.create({
         fastScrollEnd: true,
         trigger: par,
-        start: "top 90%",
+        start: `top ${par.classList.contains("delay") ? "70" : "90"}%`,
         onEnter: () => {
           bgArr[par.dataset.imageIndex || index + 1].classList.add(
             "make_visible"
@@ -169,11 +160,7 @@ function createMap() {
         .enter()
         .append("text")
         .style("opacity", 0)
-        .style("font-family", (d) =>
-          checkIfMtGambier(d)
-            ? "font-family: var(--font-family--body);"
-            : "var(--font-family--base)"
-        )
+        .style("font-family", "var(--font-family--base)")
         .style("font-style", (d) => (checkIfMtGambier(d) ? "italic" : "none"))
         .style("font-weight", (d) =>
           checkIfMtGambier(d) ? "" : "var(--font-weight--bold)"
@@ -224,12 +211,8 @@ function createMap() {
         )
         .attr("fill", "#000")
         .style("opacity", 0)
-        .style("font-family", (d) =>
-          checkIfMtGambier(d)
-            ? "font-family: var(--font-family--body)"
-            : "var(--font-family--base)"
-        )
-        .style("font-style", (d) => (checkIfMtGambier(d) ? "italic" : "none"))
+        .style("font-family", "var(--font-family--base)")
+        // .style("font-style", (d) => (checkIfMtGambier(d) ? "italic" : "none"))
         .style("font-weight", (d) =>
           checkIfMtGambier(d) ? "" : "var(--font-weight--bold)"
         )
@@ -259,7 +242,6 @@ function createMap() {
         .enter()
         .append("path")
         .attr("d", d3.geoPath().projection(insetProjection))
-        // .attr("fill", "#d6d6da")
         .attr("fill", (d, i) => colorScale(i))
         .attr("stroke", "#000")
         .style("stroke-width", 0.7);
@@ -274,11 +256,11 @@ function createMap() {
             projectedCorners.map((corner) => corner.join(",")).join("L") +
             "Z"
         )
-        .attr("fill", "none") // No fill, only outline
-        .attr("stroke", "red") // Red outline
-        .attr("stroke-width", 2); // Adjust stroke width as needed
+        .attr("fill", "none")
+        .attr("stroke", "red")
+        .attr("stroke-width", 2);
 
-      // ------ Scroll trigger -------
+      // ------ Scroll trigger ------- //
 
       const tl = gsap.timeline({ paused: true });
 
@@ -298,23 +280,19 @@ function createMap() {
             grid: [1, 4],
             from: "start",
             axis: "x",
-            each: 0.2,
+            each: 0.3,
           },
         },
         "-=2"
       );
 
       ScrollTrigger.create({
+        animation: tl,
+        scrub: true,
         fastScrollEnd: true,
         trigger: ".map_chapter",
-        start: "top 90%",
-        onEnter: () => tl.play(),
-      });
-
-      ScrollTrigger.create({
-        trigger: ".map_wrapper",
-        start: "top bottom",
-        onLeaveBack: () => tl.pause(0),
+        start: "top top",
+        end: "50% top",
       });
     }
 
@@ -327,12 +305,16 @@ function createMap() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector(".intro_video").addEventListener("playing", () => {
+    console.log("video playing");
+    document.querySelector(".intro_copy").classList.add("animate_title");
+  });
+
   // Lazy load videos
   new LazyLoad({
     threshold: 600,
   });
 
-  createIntroParallax();
   createMap();
   createScrollFades();
 
