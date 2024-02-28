@@ -187,8 +187,8 @@ function createMap() {
             calcDistance(d.properties.name) -
             (d.bbox.height + 16) / 2
         )
-        .style("width", (d) => d.bbox.width + 10) // Adding some padding
-        .style("height", (d) => d.bbox.height + 5)
+        .style("width", (d) => `${d.bbox.width + 10}px`)
+        .style("height", (d) => `${d.bbox.height + 5}px`)
         .attr("fill", "rgba(255,255,255,0.7)")
         .style("opacity", 0);
 
@@ -306,7 +306,6 @@ function createMap() {
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".intro_video").addEventListener("playing", () => {
-    console.log("video playing");
     document.querySelector(".intro_copy").classList.add("animate_title");
   });
 

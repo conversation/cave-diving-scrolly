@@ -316,7 +316,6 @@ span a {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  will-change: opacity, transform;
 }
 
 .intro_figures img,
@@ -348,7 +347,6 @@ span a {
   height: 1rem;
   left: 50%;
   animation: jumping 2s ease-in-out infinite;
-  will-change: transform;
 }
 
 .chevron-down::after {
@@ -595,8 +593,6 @@ span a {
   top: 0;
   left: 0;
   width: 100%;
-  transition: opacity 0.5s ease-in-out;
-  will-change: opacity;
 }
 .pinned_media video {
   object-fit: cover;
@@ -614,8 +610,11 @@ span a {
   left: 0;
   width: 100vw;
   height: 100vh;
-  transition: opacity 0.5s ease-in-out;
+}
+
+.pinned_media > * {
   will-change: opacity;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .make_visible {
@@ -658,19 +657,21 @@ span a {
   background-color: #87cdde;
 }
 
+#map1 > * {
+  opacity: 1;
+}
+
 #map1 {
   overflow: visible;
 }
 
-#map1 * {
-  opacity: 1;
-}
-#map1 * {
-  opacity: 1;
-}
-
 #map1 circle {
   transition: unset;
+}
+
+#map1 rect {
+  width: 0;
+  height: 0;
 }
 
 #map1 path,
