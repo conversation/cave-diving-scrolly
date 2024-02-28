@@ -363,6 +363,18 @@ span a {
   transform: rotate(45deg);
 }
 
+.animate_title {
+  animation: fadeIn 4s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes jumping {
   0% {
     transform: translateX(-50%) translateY(0);
@@ -593,14 +605,14 @@ span a {
   object-fit: cover;
   position: absolute;
 }
-.pinned_media *:not(:first-child) {
+.pinned_media > *:not(:first-child) {
   opacity: 0;
 }
 .pinned_media * {
   z-index: 1;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   transition: opacity 0.5s ease-in-out;
   will-change: opacity;
@@ -626,7 +638,7 @@ span a {
   object-position: left !important;
 }
 
-.pinned_media_attrib {
+.pinned_parent_wrapper figcaption {
   color: white;
   position: absolute;
   top: 100%;
@@ -664,6 +676,35 @@ span a {
 #map1 path,
 #map1 line {
   stroke-width: 3px;
+}
+
+.map_legend * {
+  all: unset;
+}
+
+.map_legend {
+  top: 20px;
+  left: 30px;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1rem;
+  width: max-content;
+}
+
+.map_legend div {
+  transform: translateY(0.03rem);
+  width: 10px;
+  height: 10px;
+  border-radius: 100vw;
+  background-color: #29339b;
+}
+
+.map_legend p {
+  font-family: var(--font-family--base);
+  font-size: var(--font-size--x-small);
+  line-height: 1rem;
 }
 
 /* -------- Disclosure statements ------- */
