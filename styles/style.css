@@ -523,6 +523,98 @@ span a {
 
 .pinned_parent_wrapper {
   position: relative;
+  background-color: #000;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.use_grid {
+  display: grid;
+}
+
+.grid_overlap {
+  grid-area: 1/1;
+}
+
+.copy_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  min-height: 100vh;
+}
+
+.copy_wrapper:nth-child(2) > :first-child,
+.grid_overlap > .copy_wrapper:nth-child(1) > :first-child {
+  margin-top: 80vh !important;
+}
+
+.grid_overlap > .copy_wrapper:nth-child(2) > :first-child {
+  margin-top: 40vh !important;
+}
+
+.copy_wrapper p {
+  margin-top: 40vh !important;
+  margin-bottom: 40vh !important;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: var(--space--medium);
+  border-radius: var(--border-radius--pill);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pinned_media_wrapper_fixed {
+  clip-path: inset(-0.5px 0);
+  position: absolute;
+  height: 100%;
+}
+.pinned_media_wrapper_fixed * {
+  position: fixed;
+}
+
+.pinned_media_wrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.pinned_media_wrapper * {
+  position: absolute;
+}
+
+.pinned_media {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.pinned_media video {
+  object-fit: cover;
+}
+.pinned_media img {
+  object-fit: cover;
+  position: absolute;
+}
+.pinned_media figure {
+  overflow: hidden;
+}
+.pinned_media > *:not(:first-child) {
+  opacity: 0;
+}
+.pinned_media * {
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.pinned_media > * {
+  transition: opacity 0.5s ease-in-out;
+  will-change: opacity;
+}
+
+/* .pinned_parent_wrapper {
+  position: relative;
   width: 100vw;
   min-height: 100vh;
 }
@@ -537,7 +629,7 @@ span a {
 
 .grid_overlap {
   grid-area: 1/1;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .copy_wrapper {
@@ -619,7 +711,7 @@ span a {
 .pinned_media > * {
   will-change: opacity;
   transition: opacity 0.5s ease-in-out;
-}
+} */
 
 .make_visible {
   opacity: 1 !important;
@@ -684,6 +776,7 @@ span a {
 }
 
 .map_legend {
+  all: unset;
   position: absolute;
   top: 20px;
   left: 30px;
@@ -696,6 +789,7 @@ span a {
 }
 
 .map_legend div {
+  all: unset;
   transform: translateY(0.03rem);
   width: 10px;
   height: 10px;
@@ -704,8 +798,7 @@ span a {
 }
 
 .map_legend p {
-  height: unset;
-  width: unset;
+  all: unset;
   margin: 0;
   font-family: var(--font-family--base);
   font-size: var(--font-size--x-small);
