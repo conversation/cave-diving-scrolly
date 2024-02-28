@@ -298,8 +298,16 @@ function createMap() {
 
     drawMap(window.innerWidth, window.innerHeight);
 
+    let cachedWidth = window.innerWidth;
+
     window.addEventListener("resize", () => {
-      drawMap(window.innerWidth, window.innerHeight);
+      let newWidth = window.innerWidth;
+
+      // Check if width has changed, if not then must be mobile resize
+      if (newWidth !== cachedWidth) {
+        drawMap(newWidth, window.innerHeight);
+        cachedWidth = newWidth;
+      }
     });
   });
 }
