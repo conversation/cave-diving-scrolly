@@ -117,7 +117,7 @@ body {
 /* -------- Header --------- */
 
 header {
-  padding: var(--space--medsmall);
+  padding: var(--space--small);
   background-color: var(--color--jet);
   line-height: normal;
   z-index: 9999;
@@ -177,6 +177,10 @@ nav > li a {
   display: flex;
   gap: var(--space--small);
   align-items: center;
+}
+
+.header_section_left {
+  margin-right: 1rem;
 }
 
 .header_section a {
@@ -292,6 +296,10 @@ span a {
   word-wrap: break-word;
   color: #4b4b4e;
   text-decoration: underline;
+}
+
+i {
+  font-style: italic;
 }
 
 /* -------- Intro ------- */
@@ -576,6 +584,14 @@ span a {
   border-radius: var(--border-radius--pill);
   margin-left: auto;
   margin-right: auto;
+}
+
+.copy_wrapper a {
+  color: white;
+}
+
+.copy_wrapper a:hover {
+  color: #d6d6da;
 }
 
 /* ----- FOR THE PINNED BACKGROUND ----- */
