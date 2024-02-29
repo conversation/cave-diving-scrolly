@@ -69,6 +69,7 @@
   --space--x-small: 0.25rem;
   --space--small: 0.5rem;
   --space--medsmall: 0.7rem;
+  --space--smallmed: 1.2rem;
   --space--base: 1rem;
   --space--medium: 1.5rem;
   --space--large: 3rem;
@@ -542,6 +543,7 @@ i {
   padding: 5px 10px 0 10px;
   display: block;
   transform: translateY(calc(-1rem + -8px));
+  text-wrap: nowrap;
 }
 
 .use_grid {
@@ -575,7 +577,7 @@ i {
   margin-bottom: 40vh !important;
   color: white;
   background-color: rgba(0, 0, 0, 0.8);
-  padding: var(--space--medium);
+  padding: var(--space--smallmed);
   border-radius: var(--border-radius--pill);
   margin-left: auto;
   margin-right: auto;
@@ -995,11 +997,6 @@ footer {
   .image_grid,
   .standard_img_container {
     width: var(--clamp-large);
-  }
-
-  .copy_wrapper p {
-    width: var(--clamp-large);
-    padding: 2rem;
   }
 
   .author_bios_wrapper {
