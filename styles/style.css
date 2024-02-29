@@ -117,7 +117,7 @@ body {
 /* -------- Header --------- */
 
 header {
-  padding: var(--space--small);
+  padding: var(--space--small) var(--space--base);
   background-color: var(--color--jet);
   line-height: normal;
   z-index: 9999;
@@ -127,25 +127,37 @@ header {
 }
 
 header nav {
-  height: 40px;
-  display: flex;
   justify-content: space-between;
+  gap: var(--space--small);
+  align-items: center;
 }
 
-nav > ul,
-nav > li {
+header nav ul {
   margin: 0;
-  padding: 0;
-  box-sizing: content-box;
-  display: block;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  gap: var(--space--small);
 }
 
-nav > li a {
+header nav li {
+  list-style-type: none;
+  font-size: var(--font-size--x-small);
+  margin: 0;
   display: flex;
+  align-items: center;
+}
+
+header nav li:nth-last-child(2) {
+  margin-left: auto;
 }
 
 .nav_btn {
-  padding: var(--space--small) var(--space--base);
+  padding: var(--space--small) var(--space--medsmall);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
   font-family: var(--font-family--base);
   font-size: var(--font-size--x-small);
   transition-property: background-color;
@@ -173,33 +185,9 @@ nav > li a {
   color: black;
 }
 
-.header_section {
-  display: flex;
-  gap: var(--space--small);
-  align-items: center;
-}
-
-.header_section_left {
-  margin-right: 1rem;
-}
-
-.header_section a {
-  text-decoration: none;
-}
-
-.header_section li {
-  list-style-type: none;
-}
-
 .edition {
-  align-self: center;
-  transform: translate(0, 5px);
-}
-
-.edition_name {
+  transform: translate(0, 4px);
   text-wrap: nowrap;
-  width: 100%;
-  display: inline-block;
   padding: 0;
   margin: 0;
   color: white;
@@ -209,12 +197,19 @@ nav > li a {
 
 .tc_header_logo {
   width: 100%;
-  max-height: 40px;
-  display: block;
+  max-height: 30px;
+  max-width: 280px;
+  /* display: block; */
+  overflow: visible;
+  transform: translate(0, 1px);
 }
 
 .stacked_logo {
+  height: 30px;
   display: none;
+  width: unset;
+  max-width: unset;
+  transform: none;
 }
 
 /* -------- Publish date and author info ------- */
