@@ -1,7 +1,7 @@
 gsap.registerPlugin(ScrollTrigger);
 
 function createScrollFades() {
-  gsap.utils.toArray(".pinned_parent_wrapper").forEach((pinnedSection) => {
+  gsap.utils.toArray(".pinned_section").forEach((pinnedSection) => {
     const bgArr = pinnedSection.querySelector(".pinned_media").children;
 
     const parTriggersArr = pinnedSection.querySelectorAll(".chapter");

@@ -524,38 +524,47 @@ i {
 }
 /* --------- Pinned section --------- */
 
-.pinned_parent_wrapper {
+.pinned_section {
   position: relative;
-  background-color: #000;
   width: 100%;
   min-height: 100vh;
 }
 
-.pinned_parent_wrapper figcaption {
-  opacity: 1 !important;
-  width: fit-content !important;
-  color: white;
+.pinned_media > * {
   position: absolute;
-  top: 100%;
-  left: 0px;
-  font-size: var(--font-size--x-small);
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 5px 10px 0 10px;
-  display: block;
-  transform: translateY(calc(-1rem + -8px));
-  text-wrap: nowrap;
 }
 
-.use_grid {
-  display: grid;
+.pin_block .pinned_media {
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
-.grid_overlap {
-  grid-area: 1/1;
+.pin_block > *:nth-child(2) {
+  margin-top: -100vh;
+}
+
+.pin_clipped .pinned_media > * {
+  position: fixed;
+  /* IMPORTANT - ENABLES SMOOTH CLIP-PATHS ON MOBILE BY FORCING GPU USAGE */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.pin_clipped .pinned_media {
+  -webkit-clip-path: inset(-0.5px 0);
+  clip-path: inset(-0.5px 0);
+  position: absolute;
+  height: 100%;
 }
 
 /* ----- FOR THE PINNED TEXT BOXES ----- */
-.copy_wrapper {
+
+.pinned_text:nth-child(2) > :first-child {
+  margin-top: 80vh !important;
+}
+
+.pinned_text {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -563,18 +572,9 @@ i {
   min-height: 100vh;
 }
 
-.copy_wrapper:nth-child(2) > :first-child,
-.grid_overlap > .copy_wrapper:nth-child(1) > :first-child {
-  margin-top: 80vh !important;
-}
-
-.grid_overlap > .copy_wrapper:nth-child(2) > :first-child {
-  margin-top: 40vh !important;
-}
-
-.copy_wrapper p {
-  margin-top: 40vh !important;
-  margin-bottom: 40vh !important;
+.pinned_text p {
+  margin-top: 40vh;
+  margin-bottom: 40vh;
   color: white;
   background-color: rgba(0, 0, 0, 0.8);
   padding: var(--space--smallmed);
@@ -583,20 +583,34 @@ i {
   margin-right: auto;
 }
 
-.copy_wrapper a {
+.pinned_text a {
   color: white;
 }
 
-.copy_wrapper a:hover {
+.pinned_text a:hover {
   color: #d6d6da;
 }
 
-/* ----- FOR THE PINNED BACKGROUND ----- */
+/* ----- FOR THE PINNED BACKGROUND MEDIA ----- */
 
 .pinned_media {
   top: 0;
   left: 0;
   width: 100%;
+}
+
+.pinned_media > *:not(:first-child) {
+  opacity: 0;
+}
+
+.pinned_media figure {
+  overflow: hidden;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .pinned_media video {
@@ -610,48 +624,19 @@ i {
   position: absolute;
 }
 
-.pinned_media figure {
-  overflow: hidden;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.pinned_media > *:not(:first-child) {
-  opacity: 0;
-}
-
-/* FOR PINNED BACKGROUND THAT REVEALS FROM UNDERNEATH */
-.pinned_media_wrapper_fixed {
-  clip-path: inset(-0.5px 0);
-  -webkit-clip-path: inset(-0.5px 0);
+.pinned_media figcaption {
+  opacity: 1 !important;
+  width: fit-content !important;
+  color: white;
   position: absolute;
-  height: 100%;
-}
-
-.pinned_media_wrapper_fixed * {
-  position: fixed;
-}
-
-.pinned_media_wrapper_fixed > * {
-  position: fixed;
-  /* IMPORTANT - ENABLES SMOOTH CLIP-PATHS ON MOBILE BY FORCING GPU USAGE */
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-}
-
-/* FOR STANDARD PINNED BACKGROUND */
-.pinned_media_wrapper {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-}
-
-.pinned_media_wrapper > * {
-  position: absolute;
+  top: 100%;
+  left: 0px;
+  font-size: var(--font-size--x-small);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 5px 10px 0 10px;
+  display: block;
+  transform: translateY(calc(-1rem + -8px));
+  text-wrap: nowrap;
 }
 
 .make_visible {
@@ -916,7 +901,7 @@ footer {
     font-size: var(--font-size--x-small);
   }
 
-  .copy_wrapper p {
+  .pinned_text p {
     width: 85%;
     padding: var(--space--base);
   }
