@@ -290,9 +290,9 @@ function createMap() {
         animation: tl,
         scrub: true,
         fastScrollEnd: true,
-        trigger: ".map_chapter",
-        start: "top top",
-        end: "50% top",
+        trigger: ".map_chapter .chapter",
+        start: "top 70%",
+        end: "top top",
       });
     }
 
