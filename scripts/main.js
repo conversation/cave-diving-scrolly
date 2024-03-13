@@ -78,7 +78,7 @@ function createMap() {
         .data(limestoneCoast.features)
         .join("path")
         .attr("d", d3.geoPath().projection(projection))
-        .attr("fill", (d, i) => colorScale(i))
+        .attr("fill", (d, i) => colorScale(i - 1))
         .attr("stroke", "#000");
 
       let pointsGroup = svg.append("g").attr("class", "points_group");

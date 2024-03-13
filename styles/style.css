@@ -754,16 +754,16 @@ aside a:hover {
 
 footer {
   background-color: #212121;
-  padding-top: var(--space--base);
+  padding-top: var(--space--medsmall);
   font-family: Helvetica Neue, sans-setif;
   display: flex;
   flex-direction: column;
-  gap: var(--space--base);
+  gap: var(--space--medsmall);
 }
 
 .footer_wrapper {
   background-color: #000;
-  padding: var(--space--base) 0;
+  padding: var(--space--medsmall) 0;
   display: flex;
   flex-flow: wrap;
   align-items: center;
@@ -884,15 +884,6 @@ footer {
   .image_grid_container_4 img {
     box-shadow: none;
     height: 33vh;
-  }
-
-  #footer div {
-    padding: var(--space--small) 0;
-    flex-flow: column;
-  }
-
-  #footer p {
-    font-size: var(--font-size--x-small);
   }
 
   footer img {
