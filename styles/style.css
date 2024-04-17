@@ -318,10 +318,10 @@ i {
   align-items: center;
   justify-content: center;
   margin-top: 0;
-  background-color: #000;
+  background-color: #345e50;
   overflow: hidden;
   position: relative;
-  height: 100vh;
+  height: 90vh;
 }
 
 .intro_figures {
@@ -598,6 +598,10 @@ figcaption a {
   text-wrap: nowrap;
 }
 
+.pinned_media_attrib_mobile {
+  display: none !important;
+}
+
 .make_visible {
   opacity: 1 !important;
 }
@@ -616,6 +620,9 @@ figcaption a {
 }
 .pos_left {
   object-position: left !important;
+}
+.pos_3 {
+  object-position: 30% !important;
 }
 
 /* -------- Map --------- */
@@ -858,6 +865,14 @@ footer {
     padding-inline: 10px;
     margin: 0 auto;
     font-size: var(--font-size--x-small);
+  }
+
+  .pinned_media_attrib_mobile {
+    display: block !important;
+  }
+
+  .pinned_media_attrib {
+    display: none !important;
   }
 
   .pinned_text p {

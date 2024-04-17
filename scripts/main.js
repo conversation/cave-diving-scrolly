@@ -319,15 +319,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Lazy load videos
   new LazyLoad({
-    threshold: 600,
+    threshold: 800,
   });
 
   createMap();
   createScrollFades();
 
-  document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
-    img.addEventListener("load", function () {
-      ScrollTrigger.refresh();
-    });
-  });
+  // document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
+  //   img.addEventListener("load", function () {
+  //     ScrollTrigger.refresh();
+  //     console.log("load image");
+  //   });
+  // });
 });
