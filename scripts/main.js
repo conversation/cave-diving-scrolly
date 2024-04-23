@@ -325,10 +325,9 @@ document.addEventListener("DOMContentLoaded", () => {
   createMap();
   createScrollFades();
 
-  // document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
-  //   img.addEventListener("load", function () {
-  //     ScrollTrigger.refresh();
-  //     console.log("load image");
-  //   });
-  // });
+  document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
+    img.addEventListener("load", function () {
+      ScrollTrigger.refresh();
+    });
+  });
 });
