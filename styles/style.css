@@ -624,6 +624,9 @@ figcaption a {
 .pos_3 {
   object-position: 30% !important;
 }
+.pos_6 {
+  object-position: 60% !important;
+}
 
 /* -------- Map --------- */
 
@@ -755,6 +758,64 @@ aside a:hover {
 .author_bio img {
   border-radius: 100vw;
   width: 50px;
+}
+
+/* -------- Donation promo  ------- */
+
+.donation_promo_wrapper {
+  background-color: var(--neutral-50);
+  padding: var(--space--medium);
+  width: var(--clamp-base);
+  margin-inline: auto;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  color: var(--neutral-900);
+}
+
+.donation_promo_wrapper p,
+.donation_promo_wrapper h2 {
+  width: 100%;
+}
+
+.donation_promo_wrapper h2 {
+  margin: 0;
+}
+
+.donation_promo_text {
+  font-size: var(--font-size--base);
+  margin-top: var(--space--medsmall);
+  margin-bottom: var(--space--base);
+}
+
+.donate_promo_btn {
+  color: white !important;
+  border-radius: 4px;
+  width: max-content;
+  font-size: var(--font-size--base);
+  font-weight: 600;
+}
+
+.editor_profile_wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space--medsmall);
+  margin-top: var(--space--medsmall);
+  font-family: var(--font-family--base);
+}
+
+.editor_profile_pic {
+  border-radius: 100vw;
+  width: 50px;
+}
+
+.editor_name {
+  line-height: var(--line-height--wide);
+}
+
+.editor_title {
+  line-height: var(--line-height--wide);
+  font-size: var(--font-size--x-small);
 }
 
 /* -------- Footer  ------- */
@@ -910,8 +971,14 @@ footer {
   }
 
   aside h2,
-  .disclosure_statement {
+  .disclosure_statement,
+  .donation_promo_wrapper {
     width: 95%;
+  }
+
+  .donation_promo_wrapper h2,
+  .donation_promo_text {
+    padding: 0;
   }
 
   .author_bios_wrapper {
@@ -946,10 +1013,8 @@ footer {
   p,
   figcaption,
   .image_grid,
-  .standard_img {
-    width: var(--clamp-large);
-  }
-
+  .standard_img,
+  .donation_promo_wrapper,
   .author_bios_wrapper {
     width: var(--clamp-large);
   }
